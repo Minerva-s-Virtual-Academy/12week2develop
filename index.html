@@ -1,133 +1,107 @@
 <section style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 950px; margin: 20px auto; padding: 25px; border: 2px solid #007BA6; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
     
     <header style="border-bottom: 2px solid #007BA6; padding-bottom: 15px; margin-bottom: 25px;">
-        <span style="background-color: #007BA6; color: white; padding: 4px 10px; font-size: 0.8em; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">20-Minute Challenge</span>
-        <h2 style="color: #007BA6; margin: 10px 0 5px 0;">Problem Solving: The Smart Eco-Greenhouse System</h2>
-        <p style="color: #00796B; margin: 0; font-weight: bold; font-style: italic;">Instruction: Debug and complete the control software for an automated greenhouse tracker. Read the requirements, use the scaffolds if needed, and run the system check. (Time limit: 20 mins)</p>
+        <span style="background-color: #007BA6; color: white; padding: 4px 10px; font-size: 0.8em; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Independent Practice</span>
+        <h2 style="color: #007BA6; margin: 10px 0 5px 0;">20-Minute Challenge: The Server Room Climate Safety System</h2>
+        <p style="color: #00796B; margin: 0; font-weight: bold; font-style: italic;">Instruction: Read the logic parameters below, construct your defensive programming routine in the editor, and run diagnostics to test your script. (Time limit: 20 mins)</p>
     </header>
 
     <div style="background-color: #f4f9fb; border-left: 5px solid #007BA6; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
-        <h4 style="margin-top: 0; color: #007BA6; font-size: 1.1em;">The Scenario</h4>
+        <h4 style="margin-top: 0; color: #007BA6; font-size: 1.1em;">The Mission</h4>
         <p style="margin: 0; color: #333333; font-size: 0.95em;">
-            You are writing the safety monitoring system for an automated greenhouse. The system tracks water reserves and monitors sensors. 
-            A junior programmer wrote a buggy prototype, and your job is to rewrite it so it functions reliably.
+            You have been assigned to write the backup cooling controller loop for an enterprise data centre server room. If cooling fans fail, your program must continuously track rising data readings, filter data input formatting corruptions safely, and sound ventilation alerts.
         </p>
     </div>
 
     <div style="margin-bottom: 25px;">
-        <h4 style="color: #007BA6; margin-bottom: 15px;">System Requirements Checklist:</h4>
+        <h4 style="color: #007BA6; margin-bottom: 15px;">System Specifications Checklist:</h4>
         <ul style="list-style-type: none; padding: 0; margin: 0;">
             <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 1. Constant Definition:</span> 
-                Create a global constant named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> and set it to exactly <strong>20</strong>.
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 1. Constant Configuration:</span> 
+                Define a global safety threshold parameter constant named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">MAX_TEMP</code> and assign it an integer value of <strong>75</strong>.
             </li>
             <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 2. Exception Safety:</span> 
-                Wrap the raw user sensor readings input step inside a robust <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">try...except ValueError</code> block framework to stop crashes if non-numeric values are submitted.
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 2. Condition Loop:</span> 
+                Establish a condition-controlled <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">while</code> loop tracking a tracker tracking variable named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">current_temp</code>. The automation engine must keep looping as long as <code style="font-family: monospace;">current_temp</code> remains strictly less than or equal to (<code style="font-family: monospace;">&lt;=</code>) your <code style="font-family: monospace;">MAX_TEMP</code> constant.
             </li>
             <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 3. Condition-Controlled Loop:</span> 
-                Build a <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">while</code> loop that keeps alerting and processing entries as long as a tracking variable named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">water_level</code> remains strictly greater than your <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> constant.
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 3. Exception Defences:</span> 
+                Inside your execution block, query users to enter an integer value. Wrap this step up carefully inside a <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">try...except ValueError</code> layout construct to print out a safe handling notice warning string if bad string inputs are added.
             </li>
         </ul>
     </div>
 
-    <div style="margin-bottom: 25px; border: 1px solid #ddd; border-radius: 6px; padding: 15px; background-color: #fafafa;">
-        <h4 style="margin-top: 0; color: #333333; font-size: 0.95em;">Need a structural starting hand? (Scaffold Toggles)</h4>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-            <button onclick="toggleHint('hint1')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 1: Structural Setup</button>
-            <button onclick="toggleHint('hint2')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 2: Loop Condition Syntax</button>
-        </div>
-        <div id="hint1" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
-            <strong>Step-by-step layout advice:</strong> Start your code by establishing your constant in ALL-CAPS on line 1. Then initialize <code style="color: #C62828;">water_level = 100</code> on line 2 so the while loop has a starting value to evaluate.
-        </div>
-        <div id="hint2" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
-            <strong>Loop Syntax Blueprint:</strong> Your condition-controlled loop should look like this:<br>
-            <code style="background: #eee; padding: 2px 4px; font-family: monospace; border-radius:3px; display:inline-block; margin-top:5px;">while water_level > CRITICAL_LEVEL:</code>
-        </div>
-    </div>
-
     <div style="border: 2px solid #333333; border-radius: 6px; overflow: hidden; margin-bottom: 20px;">
         <div style="background-color: #333333; color: white; padding: 8px 15px; font-family: monospace; font-size: 0.85em; display: flex; justify-content: space-between;">
-            <span>greenhouse_monitor.py</span>
-            <span style="color: #e0f2f1;">● Autograding Engine Enabled</span>
+            <span>climate_safety_core.py</span>
+            <span style="color: #e0f2f1;">● Independent Evaluation Mode Running</span>
         </div>
-        <textarea id="challengeEditor" rows="12" style="width: 100%; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border: none; resize: vertical; box-sizing: border-box; outline: none; line-height: 1.5;" placeholder="# Write your 20-minute solution script here..."></textarea>
+        <textarea id="independentEditor" rows="12" style="width: 100%; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border: none; resize: vertical; box-sizing: border-box; outline: none; line-height: 1.5;" placeholder="# Construct your complete script code framework independently here..."></textarea>
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
-        <button onclick="resetChallengeCode()" style="background: transparent; color: #C62828; border: 1px solid #C62828; padding: 8px 15px; font-weight: bold; border-radius: 4px; cursor: pointer;">Clear Workspace</button>
-        <button onclick="checkChallengeCode()" style="background-color: #00796B; color: white; border: none; padding: 12px 25px; font-size: 1.05em; font-weight: bold; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">🚀 Run Diagnostics Verification</button>
+        <button onclick="clearWorkspaceCode()" style="background: transparent; color: #C62828; border: 1px solid #C62828; padding: 8px 15px; font-weight: bold; border-radius: 4px; cursor: pointer;">Reset Sandbox</button>
+        <button onclick="diagnoseIndependentCode()" style="background-color: #00796B; color: white; border: none; padding: 12px 25px; font-size: 1.05em; font-weight: bold; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">🚀 Run Diagnostics Verification</button>
     </div>
 
-    <div id="challengeFeedbackBox" style="background-color: #f4f9fb; border: 2px dashed #007BA6; padding: 20px; border-radius: 8px; transition: all 0.2s ease;">
+    <div id="independentFeedbackBox" style="background-color: #f4f9fb; border: 2px dashed #007BA6; padding: 20px; border-radius: 8px; transition: all 0.2s ease;">
         <h4 style="margin-top: 0; color: #007BA6; display: flex; align-items: center; gap: 8px;">
-            <span>🖥️</span> Automated Code Feedback Output
+            <span>🖥️</span> Diagnostic Evaluation Core
         </h4>
-        <div id="challengeFeedbackContent" style="color: #666666; font-style: italic; font-size: 0.95em; line-height: 1.5;">
-            Waiting for code execution trace parameters. Draft your answer above and hit the diagnostics validation button to see your status report.
+        <div id="independentFeedbackContent" style="color: #666666; font-style: italic; font-size: 0.95em; line-height: 1.5;">
+            Waiting for independent compiler traces. Declare your global variables and loops above, then press the evaluation checking engine button.
         </div>
     </div>
 </section>
 
 <script>
-    // Initialize standard starter template script inside editor canvas
-    document.getElementById('challengeEditor').value = "# 1. Define your constant CRITICAL_LEVEL here\n\nwater_level = 100\n\n# 2. Setup your condition-controlled while loop below\n";
+    // Inital assignment starter context parameters
+    document.getElementById('independentEditor').value = "# 1. Define safety MAX_TEMP marker boundary here\n\ncurrent_temp = 22\n\n# 2. Build loop and try blocks below\n";
 
-    function toggleHint(hintId) {
-        var hintElement = document.getElementById(hintId);
-        if (hintElement.style.display === "none") {
-            hintElement.style.display = "block";
-        } else {
-            hintElement.style.display = "none";
+    function clearWorkspaceCode() {
+        if(confirm("Do you want to restore the base challenge configuration lines? Workspace text inputs will be removed.")) {
+            document.getElementById('independentEditor').value = "# 1. Define safety MAX_TEMP marker boundary here\n\ncurrent_temp = 22\n\n# 2. Build loop and try blocks below\n";
         }
     }
 
-    function resetChallengeCode() {
-        if(confirm("Are you sure you want to clear your code work and start fresh?")) {
-            document.getElementById('challengeEditor').value = "# 1. Define your constant CRITICAL_LEVEL here\n\nwater_level = 100\n\n# 2. Setup your condition-controlled while loop below\n";
-        }
-    }
+    function diagnoseIndependentCode() {
+        var userCode = document.getElementById('independentEditor').value;
+        var displayBox = document.getElementById('independentFeedbackBox');
+        var textContent = document.getElementById('independentFeedbackContent');
 
-    function checkChallengeCode() {
-        var studentCode = document.getElementById('challengeEditor').value;
-        var box = document.getElementById('challengeFeedbackBox');
-        var content = document.getElementById('challengeFeedbackContent');
+        // Logic check profiles
+        var checksConstant = userCode.includes("MAX_TEMP") && userCode.includes("75");
+        var checksLoopCondition = userCode.includes("while") && userCode.includes("current_temp") && (userCode.includes("<=") || userCode.includes("<"));
+        var checksExceptionHandling = userCode.includes("try:") && userCode.includes("except") && userCode.includes("ValueError");
 
-        // Tracking criteria flags
-        var hasConstant = studentCode.includes("CRITICAL_LEVEL") && studentCode.includes("20");
-        var hasWhile = studentCode.includes("while") && (studentCode.includes("water_level") || studentCode.includes("CRITICAL_LEVEL"));
-        var hasException = studentCode.includes("try:") && studentCode.includes("except") && (studentCode.includes("ValueError"));
+        var logicErrorsList = [];
+        if(!checksConstant) logicErrorsList.push("<strong>Initialization Fault:</strong> An uppercase constant named <code style='color:#C62828;'>MAX_TEMP</code> assigned value parameter 75 was not found.");
+        if(!checksLoopCondition) logicErrorsList.push("<strong>Loop Structural Fault:</strong> Code must write a condition-controlled <code style='color:#C62828;'>while</code> statement evaluated cleanly against boundary parameters.");
+        if(!checksExceptionHandling) logicErrorsList.push("<strong>Exception Routine Missing:</strong> Your data casting step needs protection parameters mapping an <code style='color:#C62828;'>except ValueError:</code> frame block routine.");
 
-        // Compile feedback profile lists dynamically
-        var missedElements = [];
-        if (!hasConstant) missedElements.push("<strong>Constant Check:</strong> Missing a global uppercase constant variable mapping <code style='color:#C62828;'>CRITICAL_LEVEL = 20</code>.");
-        if (!hasWhile) missedElements.push("<strong>Loop Check:</strong> Missing a condition-controlled <code style='color:#C62828;'>while</code> loop to safely monitor status drops.");
-        if (!hasException) missedElements.push("<strong>Exception Defences:</strong> Your user data conversion lines need to be secured cleanly inside a <code style='color:#C62828;'>try...except ValueError:</code> error catching frame block.");
-
-        if (missedElements.length === 0) {
-            // Full implementation passes checks successfully
-            box.style.border = "2px solid #00796B";
-            box.style.backgroundColor = "#e0f2f1";
-            content.innerHTML = `<h3 style="color: #00796B; margin-top:0;">🎯 Task Complete! Grade Criteria Passed</h3>
-            <p style="color: #333; margin: 0;">Excellent problem-solving skills! You have combined all three components cleanly:</p>
-            <ul style="color: #333; margin-top: 5px; line-height: 1.5;">
-                <li>The constant <strong>CRITICAL_LEVEL</strong> correctly locks down the safety boundary data parameter.</li>
-                <li>The condition-controlled <strong>while loop</strong> tracks the system status dynamically.</li>
-                <li>The structural <strong>ValueError exception protection</strong> prevents unexpected character string user answers from throwing fatal trace crashes.</li>
+        if(logicErrorsList.length === 0) {
+            // Task solved successfully configuration parameters
+            displayBox.style.border = "2px solid #00796B";
+            displayBox.style.backgroundColor = "#e0f2f1";
+            textContent.innerHTML = `<h3 style="color: #00796B; margin-top:0;">🎯 Script Check Passed! All Parameters Validated</h3>
+            <p style="color: #333; margin: 0; font-weight:bold;">Excellent architecture workflow execution! You combined:</p>
+            <ul style="color: #333; margin-top: 5px; line-height: 1.6;">
+                <li><strong>Constants:</strong> Global setting MAX_TEMP successfully locks code controls down securely.</li>
+                <li><strong>Condition Loops:</strong> Loop parameters safely check tracking states without terminal leaks.</li>
+                <li><strong>Defensive Interceptions:</strong> System locks exception rules properly protecting standard execution parameters.</li>
             </ul>`;
         } else {
-            // Partial implementation alert engine
-            box.style.border = "2px solid #C62828";
-            box.style.backgroundColor = "#ffebee";
+            // Fault tracing condition state triggers
+            displayBox.style.border = "2px solid #C62828";
+            displayBox.style.backgroundColor = "#ffebee";
             
-            var detailedFeedback = "<h3 style='color: #C62828; margin-top:0;'>⚠️ Code Debugging Elements Remaining:</h3><ul style='padding-left:20px; line-height:1.6;'>";
-            for (var i = 0; i < missedElements.length; i++) {
-                detailedFeedback += "<li style='margin-bottom:8px; color:#333;'>" + missedElements[i] + "</li>";
+            var structuralTraceReport = "<h3 style='color: #C62828; margin-top:0;'>⚠️ Structural Trace Flag Alerts Raised:</h3><ul style='padding-left:20px; line-height:1.6;'>";
+            for(var step = 0; step < logicErrorsList.length; step++) {
+                structuralTraceReport += "<li style='margin-bottom:6px; color:#333;'>" + logicErrorsList[step] + "</li>";
             }
-            detailedFeedback += "</ul><p style='margin:10px 0 0 0; font-size:0.9em; color:#555;'><em>Tip: Don't worry! Review the requirement guidelines, toggle a scaffold hint up top for structural layout models, and check your code formatting indentation.</em></p>";
+            structuralTraceReport += "</ul><p style='margin:10px 0 0 0; font-size:0.9em; color:#555;'><em>Tip: Review requirements specifications formatting parameters, make sure code indentation rules are implemented correctly, and evaluate tracking state conditions carefully.</em></p>";
             
-            content.innerHTML = detailedFeedback;
+            textContent.innerHTML = structuralTraceReport;
         }
     }
 </script>
