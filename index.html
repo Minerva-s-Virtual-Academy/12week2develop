@@ -1,194 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-Level Computer Science: Python Basics Part 2</title>
-</head>
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333333; max-width: 1200px; margin: auto; padding: 20px; background-color: #fcfcfc;">
-
-<header style="border-bottom: 3px solid #007BA6; padding-bottom: 15px; margin-bottom: 30px;">
-    <h1 style="color: #007BA6; margin-bottom: 5px;">Data and Loop Control: Iteration, Exceptions, and Constants</h1>
-    <p style="color: #00796B; font-weight: bold; font-style: italic;">Instruction: Work through each section in order. Practice writing the defensive code scripts in the sandbox simulator, and review the mark scheme. (Est. Time: 35 mins)</p>
-</header>
-
-<div class="grid-row" style="display: flex; flex-wrap: wrap; align-items: flex-start;">
+<section style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 950px; margin: 20px auto; padding: 25px; border: 2px solid #007BA6; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
     
-    <div class="col-xs-12 col-md-3" style="padding-right: 15px; min-width: 250px; margin-bottom: 20px;">
-        <div class="list-group" style="border: 1px solid #007BA6; border-radius: 4px; overflow: hidden; position: sticky; top: 10px; background: white; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-            <div style="background-color: #007BA6; color: white; padding: 12px; text-align: center; font-weight: bold;">Topic Navigation</div>
-            <a class="list-group-item" style="color: #007BA6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none; font-weight: 500;" href="#reading">1. Core Reading</a>
-            <a class="list-group-item" style="color: #007BA6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none; font-weight: 500;" href="#deep-dive">2. Python Examples</a>
-            <a class="list-group-item" style="color: #007BA6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none; font-weight: 500;" href="#interactive">3. Code Sandbox</a>
-            <a class="list-group-item" style="color: #007BA6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none; font-weight: 500;" href="#exam">4. Exam Practice</a>
-            <a class="list-group-item" style="color: #007BA6; display: block; padding: 12px; text-decoration: none; font-weight: 500;" href="#pre-lesson-task">5. Lesson Preparation</a>
+    <header style="border-bottom: 2px solid #007BA6; padding-bottom: 15px; margin-bottom: 25px;">
+        <span style="background-color: #007BA6; color: white; padding: 4px 10px; font-size: 0.8em; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">20-Minute Challenge</span>
+        <h2 style="color: #007BA6; margin: 10px 0 5px 0;">Problem Solving: The Smart Eco-Greenhouse System</h2>
+        <p style="color: #00796B; margin: 0; font-weight: bold; font-style: italic;">Instruction: Debug and complete the control software for an automated greenhouse tracker. Read the requirements, use the scaffolds if needed, and run the system check. (Time limit: 20 mins)</p>
+    </header>
+
+    <div style="background-color: #f4f9fb; border-left: 5px solid #007BA6; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+        <h4 style="margin-top: 0; color: #007BA6; font-size: 1.1em;">The Scenario</h4>
+        <p style="margin: 0; color: #333333; font-size: 0.95em;">
+            You are writing the safety monitoring system for an automated greenhouse. The system tracks water reserves and monitors sensors. 
+            A junior programmer wrote a buggy prototype, and your job is to rewrite it so it functions reliably.
+        </p>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <h4 style="color: #007BA6; margin-bottom: 15px;">System Requirements Checklist:</h4>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 1. Constant Definition:</span> 
+                Create a global constant named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> and set it to exactly <strong>20</strong>.
+            </li>
+            <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 2. Exception Safety:</span> 
+                Wrap the raw user sensor readings input step inside a robust <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">try...except ValueError</code> block framework to stop crashes if non-numeric values are submitted.
+            </li>
+            <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
+                <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 3. Condition-Controlled Loop:</span> 
+                Build a <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">while</code> loop that keeps alerting and processing entries as long as a tracking variable named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">water_level</code> remains strictly greater than your <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> constant.
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 25px; border: 1px solid #ddd; border-radius: 6px; padding: 15px; background-color: #fafafa;">
+        <h4 style="margin-top: 0; color: #333333; font-size: 0.95em;">Need a structural starting hand? (Scaffold Toggles)</h4>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+            <button onclick="toggleHint('hint1')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 1: Structural Setup</button>
+            <button onclick="toggleHint('hint2')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 2: Loop Condition Syntax</button>
+        </div>
+        <div id="hint1" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
+            <strong>Step-by-step layout advice:</strong> Start your code by establishing your constant in ALL-CAPS on line 1. Then initialize <code style="color: #C62828;">water_level = 100</code> on line 2 so the while loop has a starting value to evaluate.
+        </div>
+        <div id="hint2" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
+            <strong>Loop Syntax Blueprint:</strong> Your condition-controlled loop should look like this:<br>
+            <code style="background: #eee; padding: 2px 4px; font-family: monospace; border-radius:3px; display:inline-block; margin-top:5px;">while water_level > CRITICAL_LEVEL:</code>
         </div>
     </div>
 
-    <div class="col-xs-12 col-md-9" style="border-left: 2px solid #007BA6; padding-left: 30px; flex: 1; min-width: 300px;">
-        
-        <div id="reading" style="margin-bottom: 50px;">
-            <h2 style="color: #007BA6; margin-top: 0;">1. Introduction &amp; Core Concepts</h2>
-            <p style="color: #00796B; font-weight: bold;">Instruction: Read the definitions below. These concepts help you write code that can handle unknown data inputs without crashing.</p>
-            
-            <p>Programs must be flexible enough to repeat tasks dynamically and robust enough to handle unexpected errors gracefully.</p>
-            
-            <div style="background-color: #f4f9fb; padding: 20px; border-radius: 8px; border-left: 5px solid #007BA6; margin-bottom: 20px;">
-                <h4 style="margin-top: 0; color: #007BA6;">💡 Key Definitions for Your Exam</h4>
-                <p style="margin: 0 0 10px 0;"><strong>Variables:</strong> Named memory locations where data values can be stored and changed while the program is running.</p>
-                <p style="margin: 0 0 10px 0;"><strong>Constants:</strong> Named memory locations holding data values that <strong>cannot</strong> be changed while the program is running. (In Python, we use uppercase names to show a value is a constant).</p>
-                <p style="margin: 0 0 10px 0;"><strong>Condition-Controlled Iteration:</strong> A loop that repeats based on a Boolean condition (like a <span style="color: #C62828; font-weight: bold;">while</span> loop). It keeps running until the condition changes state.</p>
-                <p style="margin: 0;"><strong>Exceptions:</strong> Runtime errors (like dividing by zero) that disrupt the normal execution flow. We use exception handling to catch errors safely.</p>
-            </div>
+    <div style="border: 2px solid #333333; border-radius: 6px; overflow: hidden; margin-bottom: 20px;">
+        <div style="background-color: #333333; color: white; padding: 8px 15px; font-family: monospace; font-size: 0.85em; display: flex; justify-content: space-between;">
+            <span>greenhouse_monitor.py</span>
+            <span style="color: #e0f2f1;">● Autograding Engine Enabled</span>
         </div>
-
-        <div id="deep-dive" style="margin-bottom: 50px;">
-            <h2 style="color: #007BA6;">2. Python Code Examples</h2>
-            <p style="color: #00796B;">Instruction: Examine how Python implements these concepts. Look closely at how variables update, how loops end, and how errors are caught.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
-                
-                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; border-top: 4px solid #007BA6;">
-                    <strong style="color: #007BA6; font-size: 1.1em;">A. Variables and Constants</strong>
-                    <p style="font-size: 0.9em; margin-top: 10px; color: #333333;">The constant stays fixed. The variable changes dynamically as the program processes calculations.</p>
-                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em; overflow-x: auto;">
-# Constant (UPPERCASE)
-PI = 3.142 
-
-# Variable (lowercase)
-radius = 5
-area = PI * (radius ** 2)
-
-radius = 10 # This variable changes</pre>
-                </div>
-
-                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; border-top: 4px solid #007BA6;">
-                    <strong style="color: #007BA6; font-size: 1.1em;">B. Condition Loop (while)</strong>
-                    <p style="font-size: 0.9em; margin-top: 10px; color: #333333;">Repeats as long as the condition evaluates to true. You must modify the variable inside the loop to avoid an infinite loop.</p>
-                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em; overflow-x: auto;">
-user_input = ""
-<span style="color: #C62828; font-weight: bold;">while</span> user_input != "exit":
-    user_input = input("Enter word: ")
-    <span style="color: #C62828; font-weight: bold;">print</span>(f"You typed: {user_input}")</pre>
-                </div>
-
-                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; border-top: 4px solid #007BA6;">
-                    <strong style="color: #007BA6; font-size: 1.1em;">C. Exception Handling</strong>
-                    <p style="font-size: 0.9em; margin-top: 10px; color: #333333;">The program tries to run code inside the <span style="color: #C62828; font-weight: bold;">try</span> block. If a specific error happens, it runs the <span style="color: #C62828; font-weight: bold;">except</span> block instead of crashing.</p>
-                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em; overflow-x: auto;">
-<span style="color: #C62828; font-weight: bold;">try</span>:
-    num = int(input("Enter integer: "))
-    result = 10 / num
-<span style="color: #C62828; font-weight: bold;">except</span> ZeroDivisionError:
-    <span style="color: #C62828; font-weight: bold;">print</span>("Error: Cannot divide by 0")
-<span style="color: #C62828; font-weight: bold;">except</span> ValueError:
-    <span style="color: #C62828; font-weight: bold;">print</span>("Error: Must be a number")</pre>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="interactive" style="margin-bottom: 50px; background-color: #f5f5f5; padding: 25px; border-radius: 8px; border: 1px solid #ddd;">
-            <header style="border-bottom: 2px solid #007BA6; padding-bottom: 10px; margin-bottom: 20px;">
-                <span style="background-color: #007BA6; color: white; padding: 4px 10px; font-size: 0.8em; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">20-Minute Challenge</span>
-                <h3 style="color: #007BA6; margin: 10px 0 5px 0;">Problem Solving: The Smart Eco-Greenhouse System</h3>
-                <p style="color: #00796B; margin: 0; font-weight: bold; font-style: italic;">Instruction: Debug and complete the control software for an automated greenhouse tracker. Read the requirements, use the scaffolds if needed, and run the system check. (Time limit: 20 mins)</p>
-            </header>
-
-            <div style="background-color: #f4f9fb; border-left: 5px solid #007BA6; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
-                <h4 style="margin-top: 0; color: #007BA6; font-size: 1.1em;">The Scenario</h4>
-                <p style="margin: 0; color: #333333; font-size: 0.95em;">
-                    You are writing the safety monitoring system for an automated greenhouse. The system tracks water reserves and monitors sensors. 
-                    A junior programmer wrote a buggy prototype, and your job is to rewrite it so it functions reliably.
-                </p>
-            </div>
-
-            <div style="margin-bottom: 25px;">
-                <h4 style="color: #007BA6; margin-bottom: 15px;">System Requirements Checklist:</h4>
-                <ul style="list-style-type: none; padding: 0; margin: 0;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                        <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 1. Constant Definition:</span> 
-                        Create a global constant named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> and set it to exactly <strong>20</strong>.
-                    </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                        <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 2. Exception Safety:</span> 
-                        Wrap the raw user sensor readings input step inside a robust <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">try...except ValueError</code> block framework to stop crashes if non-numeric values are submitted.
-                    </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.8; color: #333333;">
-                        <span style="color: #00796B; font-weight: bold; margin-right: 8px;">✔ 3. Condition-Controlled Loop:</span> 
-                        Build a <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">while</code> loop that keeps alerting and processing entries as long as a tracking variable named <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">water_level</code> remains strictly greater than your <code style="color: #C62828; font-weight: bold; background-color: #f5f5f5; padding: 3px 6px; border-radius: 4px; font-family: monospace;">CRITICAL_LEVEL</code> constant.
-                    </li>
-                </ul>
-            </div>
-
-            <div style="margin-bottom: 25px; border: 1px solid #ddd; border-radius: 6px; padding: 15px; background-color: #fafafa;">
-                <h4 style="margin-top: 0; color: #333333; font-size: 0.95em;">Need a structural starting hand? (Scaffold Toggles)</h4>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-                    <button onclick="toggleHint('hint1')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 1: Structural Setup</button>
-                    <button onclick="toggleHint('hint2')" style="background-color: #007BA6; color: white; border: none; padding: 6px 12px; font-size: 0.85em; font-weight: bold; border-radius: 4px; cursor: pointer;">💡 Hint 2: Loop Condition Syntax</button>
-                </div>
-                <div id="hint1" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
-                    <strong>Step-by-step layout advice:</strong> Start your code by establishing your constant in ALL-CAPS on line 1. Then initialize <code style="color: #C62828;">water_level = 100</code> on line 2 so the while loop has a starting value to evaluate.
-                </div>
-                <div id="hint2" style="display: none; margin-top: 12px; padding: 10px; background: white; border-left: 3px solid #00796B; font-size: 0.9em; color: #555555;">
-                    <strong>Loop Syntax Blueprint:</strong> Your condition-controlled loop should look like this:<br>
-                    <code style="background: #eee; padding: 2px 4px; font-family: monospace; border-radius:3px; display:inline-block; margin-top:5px;">while water_level > CRITICAL_LEVEL:</code>
-                </div>
-            </div>
-
-            <div style="border: 2px solid #333333; border-radius: 6px; overflow: hidden; margin-bottom: 20px;">
-                <div style="background-color: #333333; color: white; padding: 8px 15px; font-family: monospace; font-size: 0.85em; display: flex; justify-content: space-between;">
-                    <span>greenhouse_monitor.py</span>
-                    <span style="color: #e0f2f1;">● Autograding Engine Enabled</span>
-                </div>
-                <textarea id="challengeEditor" rows="12" style="width: 100%; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border: none; resize: vertical; box-sizing: border-box; outline: none; line-height: 1.5;" placeholder="# Write your 20-minute solution script here..."></textarea>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
-                <button onclick="resetChallengeCode()" style="background: transparent; color: #C62828; border: 1px solid #C62828; padding: 8px 15px; font-weight: bold; border-radius: 4px; cursor: pointer;">Clear Workspace</button>
-                <button onclick="checkChallengeCode()" style="background-color: #00796B; color: white; border: none; padding: 12px 25px; font-size: 1.05em; font-weight: bold; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">🚀 Run Diagnostics Verification</button>
-            </div>
-
-            <div id="challengeFeedbackBox" style="background-color: #f4f9fb; border: 2px dashed #007BA6; padding: 20px; border-radius: 8px; transition: all 0.2s ease;">
-                <h4 style="margin-top: 0; color: #007BA6; display: flex; align-items: center; gap: 8px;">
-                    <span>🖥️</span> Automated Code Feedback Output
-                </h4>
-                <div id="challengeFeedbackContent" style="color: #666666; font-style: italic; font-size: 0.95em; line-height: 1.5;">
-                    Waiting for code execution trace parameters. Draft your answer above and hit the diagnostics validation button to see your status report.
-                </div>
-            </div>
-        </div>
-
-        <div id="exam" style="margin-bottom: 50px; padding: 25px; background-color: #ffffff; border: 1px solid #007BA6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-            <h2 style="color: #007BA6; margin-top: 0;">4. Exam Practice</h2>
-            <p style="color: #00796B;">Instruction: Try to solve this question, then toggle the box to look closely at how marks are awarded.</p>
-            
-            <p><strong>Question [4 Marks]:</strong> Write a Python code routine that sets a constant called <code style="background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px;">MAX_ATTEMPTS</code> to 3. The program should use condition-controlled iteration to repeatedly ask a user for a password entry as long as their attempts are less than the constant value. If a user inputs an empty password string, use an exception rule fallback mechanism to display a warning message.</p>
-            
-            <details style="border: 1px solid #007BA6; border-radius: 6px; background-color: white; overflow: hidden;">
-                <summary style="padding: 12px 15px; cursor: pointer; font-weight: bold; color: #007BA6; background-color: #f4f9fb; user-select: none;">Click to View Mark Scheme</summary>
-                <div style="padding: 20px; border-top: 1px solid #eee; background: #ffffff;">
-                    <ul style="margin: 0; padding-left: 20px; font-size: 0.95em; color: #333333; list-style-type: square; line-height: 1.8;">
-                        <li><strong style="color: #00796B;">[1 Mark]</strong> Declares the constant properly using capital letter naming identifiers (<code style="color: #C62828;">MAX_ATTEMPTS = 3</code>).</li>
-                        <li><strong style="color: #00796B;">[1 Mark]</strong> Uses a condition-controlled loop (<code style="color: #C62828;">while</code> loop) checking loop variables against the tracking boundary limit.</li>
-                        <li><strong style="color: #00796B;">[1 Mark]</strong> Implements an exception handling block sequence framework utilizing <code style="color: #C62828;">try...except</code> blocks.</li>
-                        <li><strong style="color: #00796B;">[1 Mark]</strong> Updates the condition variable correctly inside the loop execution block to ensure the loop can terminate.</li>
-                    </ul>
-                </div>
-            </details>
-        </div>
-
-        <div id="pre-lesson-task" style="background-color: #e0f2f1; padding: 25px; border-radius: 8px; border: 2px solid #00796B;">
-            <h2 style="color: #007BA6; margin-top: 0;">5. Pre-Lesson Challenge</h2>
-            <p style="color: #00796B; font-weight: bold;">Instruction: Think about these two questions before coming to our next live coding lesson.</p>
-            <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.8;">
-                <li><strong>The Constant Problem:</strong> Python doesn't actually have a built-in keyword (like `const` in JavaScript) to lock a variable value. Why do you think computer scientists still enforce using uppercase variable names as constants if the value can technically still be overwritten?</li>
-                <li><strong>The Safety Check:</strong> Why is an error handling block structure (<code style="color: #C62828;">try...except</code>) better for processing user entries than writing massive nests of validation <code style="color: #C62828;">if...else</code> statements?</li>
-            </ul>
-        </div>
-        
+        <textarea id="challengeEditor" rows="12" style="width: 100%; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border: none; resize: vertical; box-sizing: border-box; outline: none; line-height: 1.5;" placeholder="# Write your 20-minute solution script here..."></textarea>
     </div>
-</div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+        <button onclick="resetChallengeCode()" style="background: transparent; color: #C62828; border: 1px solid #C62828; padding: 8px 15px; font-weight: bold; border-radius: 4px; cursor: pointer;">Clear Workspace</button>
+        <button onclick="checkChallengeCode()" style="background-color: #00796B; color: white; border: none; padding: 12px 25px; font-size: 1.05em; font-weight: bold; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">🚀 Run Diagnostics Verification</button>
+    </div>
+
+    <div id="challengeFeedbackBox" style="background-color: #f4f9fb; border: 2px dashed #007BA6; padding: 20px; border-radius: 8px; transition: all 0.2s ease;">
+        <h4 style="margin-top: 0; color: #007BA6; display: flex; align-items: center; gap: 8px;">
+            <span>🖥️</span> Automated Code Feedback Output
+        </h4>
+        <div id="challengeFeedbackContent" style="color: #666666; font-style: italic; font-size: 0.95em; line-height: 1.5;">
+            Waiting for code execution trace parameters. Draft your answer above and hit the diagnostics validation button to see your status report.
+        </div>
+    </div>
+</section>
 
 <script>
     // Initialize standard starter template script inside editor canvas
@@ -251,6 +131,3 @@ user_input = ""
         }
     }
 </script>
-
-</body>
-</html>
